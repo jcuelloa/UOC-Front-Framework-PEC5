@@ -1,8 +1,11 @@
 
 <h1>{{title}}</h1>
 
-<hr>
-<app-article-list></app-article-list>
-<hr>
+<app-navbar (opcionMenu)="recibirOpcion($event)"></app-navbar>
 
+<app-article-list *ngIf="opcion==1"></app-article-list>
+
+<br>
+
+<app-article-item *ngIf="opcion==66" [unArticulo]=this.articuloPo></app-article-item>
 
