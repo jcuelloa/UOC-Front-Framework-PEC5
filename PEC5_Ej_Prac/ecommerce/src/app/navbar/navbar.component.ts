@@ -9,25 +9,24 @@ export class NavbarComponent {
 
   @Output() public opcionMenu = new EventEmitter();;
 
-  goToInicio() {
-    this.opcionMenu.emit(66);
-    
+  goToOpcion(op:number) {
+    this.opcionMenu.emit(op);
   }
 
-  goToArticulos() {
-    this.opcionMenu.emit(1);
+  // goToArticulos() {
+  //   this.opcionMenu.emit(1);
     
-  }
+  // }
 
-  goToArticuloTemplate() {
-    this.opcionMenu.emit(2);
+  // goToArticuloTemplate() {
+  //   this.opcionMenu.emit(2);
     
-  }
+  // }
 
-  goToArticuloReactivo() {
-    this.opcionMenu.emit(3);
+  // goToArticuloReactivo() {
+  //   this.opcionMenu.emit(3);
     
-  }
+  // }
 
 
 }

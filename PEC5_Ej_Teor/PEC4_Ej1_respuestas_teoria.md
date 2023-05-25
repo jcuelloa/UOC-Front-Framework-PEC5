@@ -4,6 +4,14 @@
 
 **A.¿Cuáles son las principales diferencias entre formularios dirigidos por template y formularios reactivos?**
 
+El enfoque reactivo es más robusto, son más escalables y  reutilizables. Los formularios basados en template son útiles para formularios simples. Son más fáciles de agregar que los formularios reactivos, pero no escalan tan bien.
+
+
+
+
+
+
+
 
 **B.¿Qué son, para qué sirven y cómo se utilizan las directivas `ngModel` y `ngModelChange`?**   
 
@@ -33,7 +41,19 @@ Podemos ahorranos estas dos instruccciones (en caso de que no necesitemos hacer 
 
 **C.¿Qué son, cuáles son y para qué sirven los estados en los formularios dirigidos por templates?**
 
+Visited
+ng-touched
+ng-untouched
+
+Changed
+ng-dirty
+ng-pristine
+
+Valid
+ng-valid
+ng-invalid
 
 
 **D.¿Qué ventajas aportan los FormGroup en la composición de formularios?**
+Podemos agrupar varios FormControl
 
