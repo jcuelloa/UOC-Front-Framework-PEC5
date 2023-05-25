@@ -6,5 +6,7 @@
 node_modules
 
 # Ignora la carpeta .angular
-.angular
+.angular/
+#.angular/cache/15.2.8/angular-webpack
+#.angular/cache/15.2.8/babel-webpack
 
