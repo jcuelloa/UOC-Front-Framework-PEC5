@@ -1,0 +1,50 @@
+
+.articulo{
+    display: inline-block;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+   
+}
+
+.articulo-datos{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.articulo-datos p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.articulo-datos span{
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+    
+}
+.si-venta{
+    background-color: greenyellow;
+}
+
+.no-venta{
+    /*border: 1px solid red;*/
+    position: relative;
+    top: -27px;
+    
+
+}
+
+p.si-venta{
+    color:blue;
+}
+p.gris{
+    color:grey;
+    
+    
+}
+
+.articulo img{
+    width: 100px;
+}

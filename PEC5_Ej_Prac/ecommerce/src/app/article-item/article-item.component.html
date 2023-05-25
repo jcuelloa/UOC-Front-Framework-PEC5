@@ -1,0 +1,14 @@
+
+<div class="articulo" [ngClass]="unArticulo.isOnSale ? 'si-venta' : 'no-venta'">
+    <img [src]="unArticulo.imageUrl">
+    <div class="articulo-datos">
+      <p>{{unArticulo.name}}</p>
+      <p [ngClass]="unArticulo.isOnSale ? '' : 'gris'">{{unArticulo.price}} €</p>
+      <ng-container *ngIf="unArticulo.isOnSale">
+        <button   [disabled]="unArticulo.quantityInCart == 0" (click)="decrementarUnidades()">-</button>
+        <span>{{unArticulo.quantityInCart}}</span>
+        <button (click)="incrementarUnidades()">+</button>
+      </ng-container>
+    </div>
+</div>
+

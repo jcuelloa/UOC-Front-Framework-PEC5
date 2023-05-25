@@ -1,0 +1,11 @@
+
+<p>template de lista de articulos</p>
+
+<p>{{lista_articulos[0].name}}</p>
+
+
+<app-article-item [unArticulo]="unArticulo"
+                      *ngFor="let unArticulo of lista_articulos"></app-article-item>
+
+
+

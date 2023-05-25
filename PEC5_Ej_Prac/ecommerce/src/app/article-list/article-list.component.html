@@ -1,0 +1,6 @@
+
+
+<app-article-item [unArticulo]="unArticulo"
+                  (eventoQuantityChange)="onQuantityChange($event)"
+                      *ngFor="let unArticulo of lista_articulos"></app-article-item>
+
