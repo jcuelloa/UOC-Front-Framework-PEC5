@@ -1,0 +1,53 @@
+
+<h3> Nuevo Artículo usando T </h3>
+<!--<h4 class="error">{{message}}</h4>-->
+<form (ngSubmit)="crearArticulo(articuloForm)" #articuloForm="ngForm">
+    <div ngModelGroup="articulo">
+      <div>
+          <input type="text"
+                 ngModel
+                 #articuloNombre="ngModel"
+                 name="nombre"
+                 placeholder="Nombre del artículo"
+                 required/>
+      </div>
+      
+      <div class="error" *ngIf="(articuloNombre.dirty || novalido) && articuloNombre.invalid">
+        Nombre de producto obligatorio
+      </div>
+
+      <div>
+        <input type="number"
+               ngModel
+               name="precio"
+               placeholder="Precio del artículo"
+               #articuloPrecio="ngModel"
+               required>
+      </div>
+      <div class="error" *ngIf="(articuloPrecio.dirty || novalido) && articuloPrecio.invalid">
+        Precio de producto obligatorio
+      </div>
+
+      <div>
+        <input type="text"
+                ngModel
+                name="imageUrl"
+                placeholder="URL de la imagen"
+                #articuloImageUrl="ngModel"
+                pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"
+                required>
+      </div>
+      <div class="error" *ngIf="(articuloImageUrl.dirty || novalido) && articuloImageUrl.invalid">
+        Error de URL
+      </div>
+      <div>
+        <input type="checkbox"
+               ngModel
+                name="isOnSale">
+                A la venta
+      </div>
+    </div>
+    <button type="submit">Crear articulo</button>
+  </form>
+  <!--<h4>{{message2}}</h4>-->
+  <h4 *ngIf="nuevoArticulo">Nuevo articulo===>{{nuevoArticulo | json}}</h4>
