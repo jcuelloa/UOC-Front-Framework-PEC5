@@ -9,9 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleNewTemplateComponent } from './article-new-template/article-new-template.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//Angular Material
-import { MatInputModule} from '@angular/material/input';
-import { MatButtonModule} from '@angular/material/button';
+
 
 
 @NgModule({
@@ -25,8 +23,7 @@ import { MatButtonModule} from '@angular/material/button';
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule,
-    MatInputModule,MatButtonModule,FormsModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
