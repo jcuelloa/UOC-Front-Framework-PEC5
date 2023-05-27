@@ -16,9 +16,9 @@ El enfoque reactivo es más robusto, son más escalables y  reutilizables. Los f
 **B.¿Qué son, para qué sirven y cómo se utilizan las directivas `ngModel` y `ngModelChange`?**   
 
 Ambas directivas las usamos para hacer el binding entre los campos del formulario y los atributos de los componentes. 
-- `ngmodel`: se utiliza para establecer un enlace de datos de **dos vías** entre un elemento de formulario HTML y un atributo en el componente de Angular. Cuando hablamos de dos vías nos referimos a que si asignamos un valor al atributo, lo podemos pasar al formulario y si tenemos un valor en el campo del formulario, lo podemos pasar al atributo.
+- `ngmodel`: se utiliza para establecer un enlace de datos o binding **unidireccional** entre un atributo del componente y un elemento de formulario HTML. Cuando asignamos un valor al atributo, aparecerá en el formulario. Es en esa dirección _atributo-->formulario_
 
-- `ngmodelChange`: es un _event binding_. Al cambiar o alterar el valor del formulario, el valor se copiará al atributo.
+- `ngmodelChange`: es un _event binding_. Al cambiar o alterar el valor del formulario, el valor se copiará al atributo. Es un binding **unidireccional** pero esta vez al contrario que la forma anterior. La dirección es _formulario-->atributo_
 
 En el ejemplo, tenemos un atributo del componente llamado _nombre_ que está conectado con el campo del formulario.
 
@@ -29,7 +29,7 @@ En el ejemplo, tenemos un atributo del componente llamado _nombre_ que está con
              (ngModelChange)="nombre=$event">
 ```
 
-Podemos ahorranos estas dos instruccciones (en caso de que no necesitemos hacer algo especial por ejemplo, ejecutar una función al cambiar el valor) y usar la notación `[(ngModel)]`
+Podemos ahorranos estas dos instruccciones (en caso de que no necesitemos hacer algo especial por ejemplo, ejecutar una función al cambiar el valor) y usar la notación `[(ngModel)]` que es un binding **de dos vías**, es decir, funciona en ambas direcciones.
 
 ``` typescript
 <input type="text"
@@ -56,4 +56,6 @@ ng-invalid
 
 **D.¿Qué ventajas aportan los FormGroup en la composición de formularios?**
 Podemos agrupar varios FormControl
+
+Podemos validar en global un conjunto de controles. Si una falla, el grupo falla.
 
