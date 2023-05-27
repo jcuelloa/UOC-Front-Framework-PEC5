@@ -1,6 +1,6 @@
 
 <h1> Nuevo Artículo - Formulario Reactivo - </h1>
-<!--<h4 class="error">{{message}}</h4>-->
+
 <form (ngSubmit)="crearArticulo()" [formGroup]="articuloForm">
     
         <div class="form-group">
@@ -11,8 +11,15 @@
                  formControlName="name"
                  >
            
-            <div class="text-danger form-text text-muted .text-danger" *ngIf="(articuloForm.get('name')!.dirty || novalido) && articuloForm.get('name')!.invalid">
-                Nombre de producto obligatorio
+            <div class="text-danger form-text text-muted .text-danger" *ngIf="(articuloForm.get('name')!.dirty || submitRealizado ) && articuloForm.get('name')!.invalid">
+                <div *ngIf="articuloForm.get('name')!.errors?.['required']">
+                    Nombre de producto obligatorio
+                </div>
+                <div *ngIf="articuloForm.get('name')!.errors?.['nombreArticuloValidator']">
+                    <div>El nombre <strong>{{articuloForm.get('name')!.value}}</strong>  no está permitido </div>
+                    <div>[prueba|fake|mock|test]</div>
+                </div>
+               
             </div>
             
         </div>
@@ -24,7 +31,7 @@
                 placeholder="Precio del artículo"
                 formControlName="price"
                 >
-            <div class="text-danger form-text text-muted" *ngIf="(articuloForm.get('price')!.dirty || novalido) && articuloForm.get('price')!.invalid">
+            <div class="text-danger form-text text-muted" *ngIf="(articuloForm.get('price')!.dirty || submitRealizado) && articuloForm.get('price')!.invalid">
                     <div *ngIf="articuloForm.get('price')!.errors?.['required']">
                         Precio de producto obligatorio
                     </div>
@@ -42,7 +49,7 @@
                     placeholder="URL de la imagen"
                     >
         
-            <div class="text-danger form-text text-muted" *ngIf="(articuloForm.get('imageUrl')!.dirty || novalido) && articuloForm.get('imageUrl')!.invalid">
+            <div class="text-danger form-text text-muted" *ngIf="(articuloForm.get('imageUrl')!.dirty || submitRealizado) && articuloForm.get('imageUrl')!.invalid">
                 <div *ngIf="articuloForm.get('imageUrl')!.errors?.['required']">
                     URL obligatoria
                 </div>
@@ -64,69 +71,6 @@
     
     
   </form>
-  <!--<h4>{{message2}}</h4>-->
+ 
   <br>
   <h4 *ngIf="nuevoArticulo">Nuevo articulo===>{{nuevoArticulo | json}}</h4>
-
-<!--
-  [ngModel]="aLaVenta" para que esté activado por defecto
-  [checked]="aLaVenta"  no funciona pq ngModel prevalece y lo no toma encuenta
-
-<form (ngSubmit)="crearArticulo(articuloForm)" #articuloForm="ngForm">
-    <div ngModelGroup="articulo">
-      <div class="form-group">
-          <input class="form-control"
-                 type="text"
-                 ngModel
-                 #articuloNombre="ngModel"
-                 name="name"
-                 placeholder="Nombre del artículo"
-                 required/>
-                 
-      
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
-            <small class="form-text text-muted" *ngIf="(articuloNombre.dirty || novalido) && articuloNombre.invalid">
-                Nombre de producto obligatorio
-            </small>
-     </div>      
-      <div>
-        <input type="number"
-               ngModel
-               name="price"
-               min="0"
-               placeholder="Precio del artículo"
-               #articuloPrecio="ngModel"
-               required>
-      </div>
-      <div class="error" *ngIf="(articuloPrecio.dirty || novalido) && articuloPrecio.invalid">
-            <div *ngIf="articuloPrecio.errors?.['required']">
-                Precio de producto obligatorio
-            </div>
-            <div *ngIf="articuloPrecio.errors?.['min']">
-                Precio debe ser positivo
-            </div>
-      </div>
-
-      <div>
-        <input type="text"
-                ngModel
-                name="imageUrl"
-                placeholder="URL de la imagen"
-                #articuloImageUrl="ngModel"
-                pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"
-                required>
-      </div>
-      <div class="error" *ngIf="(articuloImageUrl.dirty || novalido) && articuloImageUrl.invalid">
-        Error de URL
-      </div>
-      <div>
-        <input type="checkbox"
-               ngModel
-               name="isOnSale">
-               A la venta
-      </div>
-    </div>
-    <button type="submit">Crear articulo</button>
-  </form>
-  
-  -->

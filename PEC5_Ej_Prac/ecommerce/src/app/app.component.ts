@@ -11,7 +11,8 @@ export class AppComponent {
 
   opcion:number=1;
 
-  articuloPo=new Article(666,"Pow","../../assets/poo.png",1000,55,true);
+  //DEPURACION: Un articulo de prueba para probar el menú.
+  //articuloPo=new Article(666,"Pow","../../assets/poo.png",1000,55,true);
 
   recibirOpcion(op: number) {
     console.log("opcion recibida: "+op);

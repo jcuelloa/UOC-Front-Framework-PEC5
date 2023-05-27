@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Article } from '../model/article';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
   styleUrls: ['./article-new-reactive.component.css']
 })
 export class ArticleNewReactiveComponent {
-  public novalido:boolean = false;
+  public submitRealizado:boolean = false;
   public nuevoArticulo!:Article;
 
   public articuloForm!: FormGroup;
@@ -19,9 +20,10 @@ export class ArticleNewReactiveComponent {
 
   }
 
+
   createForm(){
     this.articuloForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required,this.nombreArticuloValidator()]],
       price: ['', [Validators.required, Validators.min(0.1)]],
       imageUrl: ['', [Validators.required, Validators.pattern('^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$')]],
       isOnSale: false
@@ -29,32 +31,34 @@ export class ArticleNewReactiveComponent {
 
   }
 
+  nombreArticuloValidator():ValidatorFn {
+    return (control:AbstractControl) : ValidationErrors | null => {
+      const nombreArticulo = control.value.toLowerCase();
+      //console.log(nombreArticulo);
 
-  crearArticulo(){
-    if (this.articuloForm.invalid) {
-          //this.message = 'Please correct all errors and resubmit the form';
-          this.novalido = true;
-        } else {
-          // //const articulo: Article = articuloForm.value.articulo;
-          this.nuevoArticulo = this.articuloForm.value;
-          
-          // //El checkbox toma por defecto in valor vacio. Lo pongo a false
-          // if (!this.nuevoArticulo.isOnSale){
-          //   this.nuevoArticulo.isOnSale=false;
-          // }
-          
-          console.log('Crando un nuevo articulo-->', this.nuevoArticulo);
-          
-          // //this.message2 = "NUEVO ARTICULO-->"+JSON.stringify(articulo);
-          // //this.nuevoArticulo = articulo;
-        }
-
-
+      const nombresProhibidos=['prueba','test','mock','fake'];
+      
+      if (!nombresProhibidos.includes(nombreArticulo)){
+        return null;
+      }
+      else{
+        return {nombreArticuloValidator:true}
+      }
+    }
   }
 
 
+  crearArticulo(){
+    if (this.articuloForm.invalid) {
+      
+      //submitRealizado lo uso para que solo me muestre el error en el input una vez escrito algo o una vez que he probado a enviarlo y no me lo muestre de enrtada nada más cargar el formulario    
+      this.submitRealizado = true; 
+    } else {
+          this.nuevoArticulo = this.articuloForm.value;
+          console.log('Crando un nuevo articulo-->', this.nuevoArticulo);
+    }
 
-
+  }
 
 }
 

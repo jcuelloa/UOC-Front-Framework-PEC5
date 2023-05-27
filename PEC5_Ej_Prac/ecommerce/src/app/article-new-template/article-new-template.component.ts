@@ -10,31 +10,24 @@ import { FormGroup, NgForm } from '@angular/forms';
 })
 export class ArticleNewTemplateComponent {
   
-  public novalido:boolean = false;
-  //public message2 = '';
+  public submitRealizado:boolean = false;
   public nuevoArticulo!:Article;
-  //public aLaVenta:boolean=true; //para activar el checkbox por defecto
   
   
   constructor() {  }
 
   crearArticulo(articuloForm:NgForm)  {
     if (articuloForm.invalid) {
-      //this.message = 'Please correct all errors and resubmit the form';
-      this.novalido = true;
+      //submitRealizado lo uso para que solo me muestre el error en el input una vez escrito algo o una vez que he probado a enviarlo y no me lo muestre de enrtada nada más cargar el formulario 
+      this.submitRealizado = true;
     } else {
-      //const articulo: Article = articuloForm.value.articulo;
       this.nuevoArticulo = articuloForm.value.articulo;
       
-      //El checkbox toma por defecto un valor vacio. Lo pongo a false
+      //El checkbox toma por defecto un valor vacio si no toco nada y envio el form. Lo pongo a false
       if (!this.nuevoArticulo.isOnSale){
         this.nuevoArticulo.isOnSale=false;
       }
-      
       console.log('Crando un nuevo articulo-->', this.nuevoArticulo);
-      
-      //this.message2 = "NUEVO ARTICULO-->"+JSON.stringify(articulo);
-      //this.nuevoArticulo = articulo;
     }
   }
 
