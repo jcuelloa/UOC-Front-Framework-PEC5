@@ -1,18 +1,17 @@
 
-<h1> Nuevo Artículo Template </h1>
+<h1> Nuevo Artículo - Formulario Reactivo - </h1>
 <!--<h4 class="error">{{message}}</h4>-->
-<form (ngSubmit)="crearArticulo(articuloForm)" #articuloForm="ngForm">
-    <div ngModelGroup="articulo">
+<form (ngSubmit)="crearArticulo()" [formGroup]="articuloForm">
+    
         <div class="form-group">
             <input class="form-control"
                  type="text"
-                 ngModel
-                 #articuloNombre="ngModel"
                  name="name"
                  placeholder="Nombre del artículo"
-                 required/>
+                 formControlName="name"
+                 >
            
-            <div class="text-danger form-text text-muted .text-danger" *ngIf="(articuloNombre.dirty || novalido) && articuloNombre.invalid">
+            <div class="text-danger form-text text-muted .text-danger" *ngIf="(articuloForm.get('name')!.dirty || novalido) && articuloForm.get('name')!.invalid">
                 Nombre de producto obligatorio
             </div>
             
@@ -21,20 +20,16 @@
         <div class="form-group">
             <input class="form-control"
                 type="number"
-                ngModel
                 name="price"
-                min="0"
                 placeholder="Precio del artículo"
-                #articuloPrecio="ngModel"
-                required>
-        
-        
-            <div class="text-danger form-text text-muted" *ngIf="(articuloPrecio.dirty || novalido) && articuloPrecio.invalid">
-                    <div *ngIf="articuloPrecio.errors?.['required']">
+                formControlName="price"
+                >
+            <div class="text-danger form-text text-muted" *ngIf="(articuloForm.get('price')!.dirty || novalido) && articuloForm.get('price')!.invalid">
+                    <div *ngIf="articuloForm.get('price')!.errors?.['required']">
                         Precio de producto obligatorio
                     </div>
-                    <div *ngIf="articuloPrecio.errors?.['min']">
-                        Precio debe ser positivo
+                    <div *ngIf="articuloForm.get('price')!.errors?.['min']">
+                        Precio debe ser mayor de 0.1€
                     </div>
             </div>
         </div>
@@ -42,18 +37,16 @@
         <div class="form-group">
             <input class="form-control "
                     type="text"
-                    ngModel
                     name="imageUrl"
+                    formControlName="imageUrl"
                     placeholder="URL de la imagen"
-                    #articuloImageUrl="ngModel"
-                    pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"
-                    required>
+                    >
         
-            <div class="text-danger form-text text-muted" *ngIf="(articuloImageUrl.dirty || novalido) && articuloImageUrl.invalid">
-                <div *ngIf="articuloImageUrl.errors?.['required']">
+            <div class="text-danger form-text text-muted" *ngIf="(articuloForm.get('imageUrl')!.dirty || novalido) && articuloForm.get('imageUrl')!.invalid">
+                <div *ngIf="articuloForm.get('imageUrl')!.errors?.['required']">
                     URL obligatoria
                 </div>
-                <div *ngIf="articuloImageUrl.errors?.['pattern']">
+                <div *ngIf="articuloForm.get('imageUrl')!.errors?.['pattern']">
                     URL mal formada
                 </div>
             </div>
@@ -62,13 +55,13 @@
         <div class="form-check">
             <input class="form-check-input" 
                 type="checkbox"
-                ngModel
-                name="isOnSale">
+                name="isOnSale"
+                formControlName="isOnSale">
                 El artículo está a la venta
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Crear articulo</button>
-    </div>
+    
     
   </form>
   <!--<h4>{{message2}}</h4>-->

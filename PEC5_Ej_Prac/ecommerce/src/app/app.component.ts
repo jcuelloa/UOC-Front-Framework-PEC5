@@ -9,7 +9,7 @@ import { Article } from './model/article';
 export class AppComponent {
   title = 'Tienda de moviles';
 
-  opcion:number=66;
+  opcion:number=1;
 
   articuloPo=new Article(666,"Pow","../../assets/poo.png",1000,55,true);
 

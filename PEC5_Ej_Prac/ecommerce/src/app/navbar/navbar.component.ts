@@ -13,20 +13,5 @@ export class NavbarComponent {
     this.opcionMenu.emit(op);
   }
 
-  // goToArticulos() {
-  //   this.opcionMenu.emit(1);
-    
-  // }
-
-  // goToArticuloTemplate() {
-  //   this.opcionMenu.emit(2);
-    
-  // }
-
-  // goToArticuloReactivo() {
-  //   this.opcionMenu.emit(3);
-    
-  // }
-
-
+  
 }

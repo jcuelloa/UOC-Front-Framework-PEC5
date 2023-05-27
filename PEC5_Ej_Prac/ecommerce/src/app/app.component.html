@@ -3,14 +3,14 @@
 
 <app-navbar (opcionMenu)="recibirOpcion($event)"></app-navbar>
 
+<!-- <app-article-item *ngIf="opcion==66" [unArticulo]=this.articuloPo></app-article-item> -->
 
 <!-- <app-article-new-template></app-article-new-template> -->
 
+<app-article-new-reactive></app-article-new-reactive>
 
-
-<app-article-item *ngIf="opcion==66" [unArticulo]=this.articuloPo></app-article-item>
-<app-article-list *ngIf="opcion==1"></app-article-list>
-<app-article-new-template *ngIf="opcion==2"></app-article-new-template>
+<app-article-list *ngIf="opcion==66"></app-article-list>
+<app-article-new-template *ngIf="opcion==66"></app-article-new-template>
 
 <br>
 
