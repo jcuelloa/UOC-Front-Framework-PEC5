@@ -6,12 +6,16 @@ Nombre y apellidos: Juan Antonio Cuello Alarcon
 
 Repositorio público: https://github.com/jcuelloa/UOC-Front-Framework-PEC5
 
+PEC5 subida a hosting: http://www.cuelloalarcon.com/uoc/angular/pec5/
+
 
 ### **Consideraciones**
 
 - Con repecto a git, he creado el repositorio en la raíz de la pec, tal como lo hemos hecho en las anteriores entregas.
 
 - En el ejercico de crear el menú (repaso), incluir una simple pista de "**usar event-binding** para que el menú (hijo) comunique al padre la opción escogida" ayudaría a los alumnos a centrar un poco la busqueda de la solución, dado el poco tiempo que hay para esta PEC.
+
+- Aunque no era necesario, he subido la PEC a un hosting particular para probarla en dominio público. Puede consultarlo para ver el funcionamiento del formulario.
 
 ### **Descripción**
 
