@@ -45,7 +45,7 @@
                     name="imageUrl"
                     placeholder="URL de la imagen"
                     #articuloImageUrl="ngModel"
-                    pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"
+                    pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?/[a-zA-Z0-9_\-]+\.[a-zA-Z]+$"
                     required>
         
             <div class="text-danger form-text text-muted" *ngIf="(articuloImageUrl.dirty || submitRealizado) && articuloImageUrl.invalid">

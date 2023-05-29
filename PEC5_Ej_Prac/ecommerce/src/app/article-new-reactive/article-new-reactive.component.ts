@@ -25,7 +25,8 @@ export class ArticleNewReactiveComponent {
     this.articuloForm = this.fb.group({
       name: ['', [Validators.required,this.nombreArticuloValidator()]],
       price: ['', [Validators.required, Validators.min(0.1)]],
-      imageUrl: ['', [Validators.required, Validators.pattern('^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$')]],
+      imageUrl: ['', [Validators.required, Validators.pattern('^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?/[a-zA-Z0-9_\-]+\.[a-zA-Z]+$')]],
+      //imageUrl: ['', [Validators.required, Validators.pattern('^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$')]],
       isOnSale: false
     });
 

@@ -16,9 +16,13 @@ export class ArticleListComponent implements OnInit {
    };
   
   ngOnInit(): void {
-    this.lista_articulos.push(new Article(1,"Iphone","../../assets/iphone.png",500,1,true));
-    this.lista_articulos.push(new Article(2,"Samsung","../../assets/samsung.png",450,1,false));
-    this.lista_articulos.push(new Article(3,"OnePlus","../../assets/oneplus.png",350,0,true));
+    this.lista_articulos.push(new Article(1,"Iphone","http://www.cuelloalarcon.com/imagenesuoc/iphone.png",500,1,true));
+    this.lista_articulos.push(new Article(2,"Samsung","http://www.cuelloalarcon.com/imagenesuoc/samsung.png",450,1,false));
+    this.lista_articulos.push(new Article(3,"OnePlus","http://www.cuelloalarcon.com/imagenesuoc/oneplus.png",350,0,true));
+    
+    // this.lista_articulos.push(new Article(1,"Iphone","../../assets/iphone.png",500,1,true));
+    // this.lista_articulos.push(new Article(2,"Samsung","../../assets/samsung.png",450,1,false));
+    // this.lista_articulos.push(new Article(3,"OnePlus","../../assets/oneplus.png",350,0,true));
 
   }
 
